@@ -1,18 +1,15 @@
-import { StyleSheet } from "react-native";
+import { StatusBar } from "expo-status-bar";
+import { Platform, StyleSheet } from "react-native";
 
-import EditScreenInfo from "../components/EditScreenInfo";
 import { Text, View } from "../components/Themed";
+import { Button } from "../components";
 
-export default function Playlists() {
+export default function Connect() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Playlists</Text>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
-      <EditScreenInfo path="/screens/TabTwoScreen.tsx" />
+      <Text style={styles.title}>Modal</Text>
+      {/* <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} /> */}
+      <Button label="Connect Spotify" width={200} height={50} />
     </View>
   );
 }
