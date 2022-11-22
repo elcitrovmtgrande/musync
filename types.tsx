@@ -35,3 +35,32 @@ export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
     BottomTabScreenProps<RootTabParamList, Screen>,
     NativeStackScreenProps<RootStackParamList>
   >;
+
+export type Token = {
+  service: 'spotify' | 'apple_music' | 'youtube';
+  issuedAt: number;
+  expiresIn: number | string;
+  type: string;
+  value: string;
+} | {};
+
+export type UserState = {
+  spotifyToken: Token;
+  appleToken: Token;
+  youtubeToken: Token;
+}
+
+export type Album = {
+  name: string;
+  releasedAt: string;
+  cover?: string; // link cover album
+}
+
+export type Song = {
+  id: string;
+  duration: number; // in ms
+  artist: string;
+  album: Album;
+  href?: string;
+}
+

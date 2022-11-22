@@ -3,7 +3,7 @@ import { TouchableOpacity, StyleSheet, Text } from "react-native";
 import Icon from './Icon';
 
 type ButtonProps = {
-  label: string;
+  label?: string;
   bgColor?: string;
   color?: string;
   icon?: string;
@@ -12,6 +12,7 @@ type ButtonProps = {
   width?: number;
   height?: number;
   style?: object;
+  disabled?: boolean;
   onPress?: () => void;
 };
 
@@ -24,6 +25,7 @@ function Button({
   bgColor,
   width,
   height,
+  disabled,
   style,
   onPress,
 }: ButtonProps) {
@@ -44,7 +46,7 @@ function Button({
       fontSize: fontSize || 14,
     },
     icon: {
-      marginRight: 12,
+      marginRight: label ? 12 : 0,
     },
   });
 
@@ -54,7 +56,10 @@ function Button({
   }
 
   return (
-    <TouchableOpacity style={[styles.container, style]} onPress={onPress || (() => { })}>
+    <TouchableOpacity
+      disabled={disabled}
+      style={[styles.container, style]}
+      onPress={onPress || (() => { })}>
       {icon && (
         <Icon
           style={styles.icon}
@@ -62,7 +67,9 @@ function Button({
           color={iconColor || color || 'white'}
           size={fontSize || 22} />
       )}
-      <Text style={styles.label}>{label}</Text>
+      {label && (
+        <Text style={styles.label}>{label}</Text>
+      )}
     </TouchableOpacity>
   );
 }
