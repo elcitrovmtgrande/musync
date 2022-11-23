@@ -6,7 +6,8 @@ Pour obtenir les sons en entier, seul un Reverse Engineering sur le site officie
 
 #### Reverse Engineering
 En regardant la trace d'une eécoute Spotify sur [l'application web Spotify](https://open.spotify.com/), on observe que les requetes ne que des portions de bytes aà l'API. Le challenge est donc d'essayer de récupérer certains bytes, et au fur et aà mesure que la lecture avance côté client, demander les bytes suivants.
-Le CORS semble eégalement poser problème?.
+L'URL pour demander ses bytes est le service anonyme [audio-fa.scdn.co](https://audio-fa.scdn.co/audio/).
+Le CORS semble également poser problème?.
 
 
 ## Payload des connexions

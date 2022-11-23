@@ -37,12 +37,12 @@ export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
   >;
 
 export type Token = {
-  service: 'spotify' | 'apple_music' | 'youtube';
+  service: library;
   issuedAt: number;
-  expiresIn: number | string;
+  expiresIn: number | string | undefined;
   type: string;
   value: string;
-} | {};
+};
 
 export type UserState = {
   spotifyToken: Token;
@@ -56,11 +56,13 @@ export type Album = {
   cover?: string; // link cover album
 }
 
-export type Song = {
+export type Track = {
   id: string;
+  name: string;
   duration: number; // in ms
   artist: string;
   album: Album;
   href?: string;
 }
 
+export type library = 'spotify' | 'apple_music' | 'youtube';

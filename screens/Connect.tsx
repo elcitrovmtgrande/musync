@@ -47,14 +47,13 @@ export default function Connect() {
   );
 
   useEffect(() => {
-    if (spotifyAuth?.type === 'success') {
-      console.log(spotifyAuth);
+    if (spotifyAuth?.type === 'success' && spotifyAuth.authentication) {
       const token: Token = {
         service: 'spotify',
-        type: spotifyAuth.authentication?.tokenType,
-        issuedAt: spotifyAuth.authentication?.issuedAt,
-        expiresIn: spotifyAuth.authentication?.expiresIn,
-        value: spotifyAuth.authentication?.accessToken,
+        type: spotifyAuth.authentication.tokenType,
+        issuedAt: spotifyAuth.authentication.issuedAt,
+        expiresIn: spotifyAuth.authentication.expiresIn,
+        value: spotifyAuth.authentication.accessToken,
       };
       dispatch(updateSpotify(token));
     }
