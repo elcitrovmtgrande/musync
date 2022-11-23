@@ -1,3 +1,9 @@
+# Installation du projet
+`git clone https://github.com/elcitrovmtgrande/musync`
+`cd musync`
+`yarn install`
+`yarn ios`
+
 ## Fonctionnement des differents services
 
 ### Spotify
