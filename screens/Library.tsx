@@ -20,6 +20,8 @@ export default function Library({ navigation }: RootTabScreenProps<"Library">) {
         const tracks = await Spotify.getTracks();
         setTracks(tracks);
         setLoading(false);
+      } else {
+        setTracks([]);
       }
     }
     getSpotifyTracks();
