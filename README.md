@@ -18,6 +18,14 @@ En regardant la trace d'une eécoute Spotify sur [l'application web Spotify](htt
 L'URL pour demander ses bytes est le service anonyme [audio-fa.scdn.co](https://audio-fa.scdn.co/audio/).
 Le CORS semble également poser problème?.
 
+1. URL permettant de demander les bytes d'une musique
+   Pour le son DON'T SAY NOTHING de Saweetie
+   https://audio-fa.scdn.co/audio/91eae3c62d0086f5e381d2890cb5616f16223af6?1669403117_fUASSK9KlysqQ70lwklUA7NzGy1ITjjwvqa_ZceEDqU=
+   Jetons un cou d'oeil à l'URL après audio/ : elle est composée de
+   - `91eae3c62d0086f5e381d2890cb5616f16223af6` (qui est du SHA1 ou SHA 128 si on regarde cette [ref](https://www.tunnelsup.com/hash-analyzer/)) Cet id est leak sur les liens d'image de la cover d'un morceau `https://i.scdn.co/image/{id}`
+   - `1669403117_fUASSK9KlysqQ70lwklUA7NzGy1ITjjwvqa_ZceEDqU=`
+  Tous deux séparés par un `?`.
+
 
 ## Payload des connexions
 Lors d'une connexion d'un utilisateur à un service, ce-dernier renvoie les payloads suivants pour chacune des autorisation.
@@ -32,6 +40,7 @@ Lors d'une connexion d'un utilisateur à un service, ce-dernier renvoie les payl
 - [Get Youtube Auth from Google token](https://developers.google.com/youtube/registering_an_application)
 
 - Apple Music? [API Reference](https://developer.apple.com/documentation/applemusicapi/get_all_library_songs) :
+  - Obtenir un token MusicKit => https://developer.apple.com/documentation/applemusicapi/user_authentication_for_musickit
   - Comment recuperer les identifiers des morceaux d'une playlist ?
   - Comment recuperer l'identifier d'une playlist ?
   - => Une fois ces infos, c'est gagné

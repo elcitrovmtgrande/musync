@@ -18,6 +18,7 @@ export default function Library({ navigation }: RootTabScreenProps<"Library">) {
         setLoading(true);
         const Spotify = new LibraryManager(session.spotifyToken);
         const tracks = await Spotify.getTracks();
+        console.log(tracks)
         setTracks(tracks);
         setLoading(false);
       } else {

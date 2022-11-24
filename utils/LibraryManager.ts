@@ -20,7 +20,7 @@ class LibraryManager {
     this._library = token.service;
   }
 
-  public getLibrary() {
+  public getLibrary(): library {
     return this._library;
   }
 
